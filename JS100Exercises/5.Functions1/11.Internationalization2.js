@@ -11,22 +11,24 @@ function extractRegion(locale) {
 }
 
 function localGreet(locale) {
-  console.log( greet( extractLanguage( locale ), extractRegion( locale ) ) );
+	let region = extractRegion(locale);
+	let language = extractLanguage(locale);
+
+	switch( region ){
+		case "US": return "Hey!";
+		case "GB": return "Hello!";
+		case "AU": return "Howdy!";
+		default: return greet(language);
+	}
 }
 
-function greet(languageCode, region) {
+function greet(languageCode) {
 	switch( languageCode ){
-		case "en":
-			switch( region ){
-				case "US": return "Hey!";
-				case "GB": return "Hello!";
-				case "AU": return "Howdy!";
-			}
-		break;
-
+		case "en":return "Hi!";
 		case "fr": return "Salut!";
 		case "es": return "Hola!";
 		case "it": return "Ciao!";
+		default: 'Yee';
 	}
 }
 
